@@ -46,7 +46,7 @@ module_param(rtw_la_mode_en, int, 0644);
 int rtw_network_mode = Ndis802_11IBSS;/* Ndis802_11Infrastructure; */ /* infra, ad-hoc, auto */
 /* NDIS_802_11_SSID	ssid; */
 int rtw_channel = 1;/* ad-hoc support requirement */
-int rtw_wireless_mode = WIRELESS_MODE_MAX;
+int rtw_wireless_mode = PHYDM_WIRELESS_MODE_G;
 module_param(rtw_wireless_mode, int, 0644);
 int rtw_vrtl_carrier_sense = AUTO_VCS;
 int rtw_vcs_type = RTS_CTS;
@@ -347,7 +347,7 @@ MODULE_PARM_DESC(rtw_vht_rx_mcs_map, "VHT RX MCS map");
 /* 0: not check in watch dog, 1: check in watch dog  */
 int rtw_check_hw_status = 0;
 
-int rtw_low_power = 0;
+int rtw_low_power = 1;
 int rtw_wifi_spec = 0;
 
 

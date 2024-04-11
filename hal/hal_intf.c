@@ -895,6 +895,7 @@ s32	rtw_hal_mgnt_xmit(_adapter *padapter, struct xmit_frame *pmgntframe)
 		rtw_mgmt_xmitframe_coalesce(padapter, pmgntframe->pkt, pmgntframe);
 #endif
 
+#if defined(CONFIG_AP_MODE)
 #ifdef CONFIG_RTW_MGMT_QUEUE
 	if (MLME_IS_AP(padapter) || MLME_IS_MESH(padapter)) {
 		_enter_critical_bh(&pxmitpriv->lock, &irqL);
@@ -910,6 +911,7 @@ s32	rtw_hal_mgnt_xmit(_adapter *padapter, struct xmit_frame *pmgntframe)
 		if (ret == RTW_QUEUE_MGMT)
 			return ret;
 	}
+#endif
 #endif
 
 	ret = padapter->hal_func.mgnt_xmit(padapter, pmgntframe);
